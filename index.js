@@ -105,8 +105,14 @@ const zooAnimals = [
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+  function USApop(animalArray){
+    // current value is animal
+    // accumulator is undefined until you give it one?
+    return animalArray.reduce(function(accumulator, currentValue){
+      // console.log('This is accumulator: ', accumulator, 'This is currentValue: ', currentValue);
+      return accumulator += currentValue.population;
+
+    }, 0);
   }
   
   
