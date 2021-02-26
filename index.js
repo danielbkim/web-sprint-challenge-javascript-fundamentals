@@ -80,8 +80,10 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowerCaseNames(animalArray){
+    return animalArray.map((animal) => {
+      return `${animal.animal_name.toLowerCase()}`
+    });
   }
   
   
