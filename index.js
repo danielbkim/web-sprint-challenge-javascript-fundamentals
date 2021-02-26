@@ -127,26 +127,28 @@ const zooAnimals = [
 
   //come back to this one
   function consume(a, b, cb){
-    return function cb(a, b){};
+    // console.log( 'This is a: ', a, 'This is b: ', b, 'This is callback: ', cb);
+    return cb(a, b);
+
   }
   
   /* 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁 */
  // 🦁🦁🦁 Use add to return the sum of two numbers 🦁🦁🦁
   
-function add(){
-    /*Your Code Here*/
+  function add(a, b){
+    return a + b;
   }
 
-// 🦁🦁🦁 Use multiply to return the product of two numbers 🦁🦁🦁
-  
-function multiply(/*Your Code Here */){
-   /*Your Code Here */
+  // 🦁🦁🦁 Use multiply to return the product of two numbers 🦁🦁🦁
+    
+  function multiply(a, b){
+    return a * b;
   }
 
- // 🦁🦁🦁 Use greeting to accept a first and last name and return "Hello {first-name} {last-name}, nice to meet you!" 🦁🦁🦁
-  
-function greeting(/*Your Code Here */){
-   return /*Your Code Here */
+  // 🦁🦁🦁 Use greeting to accept a first and last name and return "Hello {first-name} {last-name}, nice to meet you!" 🦁🦁🦁
+    
+  function greeting(a, b){
+    return `Hello ${a} ${b}, nice to meet you!`
   }
   
   // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
@@ -156,8 +158,8 @@ function greeting(/*Your Code Here */){
   // console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
   
   
-// 🦁💪 Stretch: If you haven't already, convert your array method callbacks into arrow functions - make sure you comment out this section before you submit your work 🦁💪
- 
+  // 🦁💪 Stretch: If you haven't already, convert your array method callbacks into arrow functions - make sure you comment out this section before you submit your work 🦁💪
+
 
 
 
@@ -192,7 +194,7 @@ CuboidMaker.prototype.volume = function() {
 
 
 CuboidMaker.prototype.surfaceArea = function() {
-  console.log('This is length: ', this.length);
+  // console.log('This is length: ', this.length);
   return 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
 }
 
@@ -201,6 +203,7 @@ CuboidMaker.prototype.surfaceArea = function() {
   Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
 
+// I'm confused why suddenly this takes numbers when the constructor of the function indicates (plus the directions) indicate that it takes in an object
 let cuboid = new CuboidMaker(4, 5, 5);
 
 
@@ -209,18 +212,31 @@ let cuboid = new CuboidMaker(4, 5, 5);
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
 console.log(cuboid.volume()); // 100
 console.log(cuboid.surfaceArea()); // 130
- 
+
 
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
 class CuboidMakerTwo{
+  constructor(dimensions) {
+    this.length = dimensions.length;
+    this.width = dimensions.width;
+    this.height = dimensions.height;
+  }
 
+  volume() {
+    return this.length * this.width * this.height;
+  };
+
+  surfaceArea() {
+    return 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
+  };
 }
 
+let cuboidTwo = new CuboidMakerTwo(4, 5, 5)
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
-// console.log(cuboidTwo.volume()); // 100
-// console.log(cuboidTwo.surfaceArea()); // 130
+console.log(cuboidTwo.volume()); // 100
+console.log(cuboidTwo.surfaceArea()); // 130
 
 
 
@@ -229,8 +245,16 @@ class CuboidMakerTwo{
 // 🦄 💪 Stretch Task: Extend the base class CuboidMaker with a sub class called CubeMaker.  Find out the formulas for volume and surface area for cubes and create those methods using the dimension properties from CuboidMaker.  Test your work by logging out your volume and surface area. 🦄 💪
   
 
+// class CubeMaker extends CuboidMakerTwo {
+//   constructor(dimensions){
+//     super(dimensions)
+//   }
+// }
 
+// let cube = new CubeMaker(4, 5, 5);
 
+// console.log(cube.volume()); // 100
+// console.log(cube.surfaceArea()); // 130
 
 
   /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
